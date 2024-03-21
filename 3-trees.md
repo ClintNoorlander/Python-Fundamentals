@@ -130,4 +130,36 @@ else:
 
 Understanding trees and their traversal algorithms is fundamental to many areas of computer science and programming.
 
+## Example Problem: Counting Leaf Nodes
+
+Let's solve a problem using trees. Given a binary tree, write a function to count the number of leaf nodes in the tree (i.e., nodes with no children).
+
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+# Function to count leaf nodes
+def count_leaf_nodes(node):
+    if node is None:
+        return 0
+    if node.left is None and node.right is None:
+        return 1
+    return count_leaf_nodes(node.left) + count_leaf_nodes(node.right)
+
+# Example tree creation
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+leaf_count = count_leaf_nodes(root)
+print(f"Number of leaf nodes: {leaf_count}")  # Outputs: Number of leaf nodes: 3
+```
+
+In this example, we recursively count the leaf nodes in a binary tree by checking if a node has no children (left and right are both None), and incrementing the count accordingly.
+
 [Back to Welcome Page](0-welcome.md)
