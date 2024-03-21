@@ -71,4 +71,23 @@ Sets are particularly useful in scenarios where you need:
 
 Sets provide an excellent tool for solving problems related to uniqueness and set operations efficiently.
 
+## Example Problem: Set Intersection
+
+Let's solve a problem using sets. Given two lists of numbers, find the intersection of these lists (i.e., the common elements present in both lists).
+
+```python
+def find_intersection(list1, list2):
+    set1 = set(list1)
+    set2 = set(list2)
+    return set1 & set2
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 5, 6, 7]
+
+intersection = find_intersection(list1, list2)
+print(intersection)  # Outputs: {3, 4, 5}
+```
+
+In this example, we convert the lists to sets and then use the intersection operator (`&`) to find the common elements efficiently.
+
 [Back to Welcome Page](0-welcome.md)
