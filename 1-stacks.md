@@ -79,4 +79,43 @@ Stacks are used in various computer science applications, including:
 
 Understanding stacks is crucial for developing efficient algorithms and solving many programming problems.
 
+## Example: Balanced Parentheses
+
+One common problem that can be solved using stacks is checking whether a given string of parentheses is balanced or not. A balanced string of parentheses means that for every opening parenthesis, there is a corresponding closing parenthesis, and they are properly nested.
+
+For example, the strings "()()", "(())", and "(()(()))" are balanced, while ")(", "())(", and "((())" are not balanced.
+
+Let's create a function in Python to solve this problem using a stack:
+
+```python
+def is_balanced_parentheses(s):
+    stack = []
+    opening_brackets = "([{"
+    closing_brackets = ")]}"
+
+    for char in s:
+        if char in opening_brackets:
+            stack.append(char)
+        elif char in closing_brackets:
+            if not stack:
+                return False  # Closing bracket with no matching opening bracket
+            top = stack.pop()
+            if opening_brackets.index(top) != closing_brackets.index(char):
+                return False  # Mismatched opening and closing brackets
+    return len(stack) == 0  # Check if stack is empty after processing all characters
+
+# Example usage
+print(is_balanced_parentheses("()()"))  # Outputs: True
+print(is_balanced_parentheses("(())"))  # Outputs: True
+print(is_balanced_parentheses("(()(()))"))  # Outputs: True
+
+print(is_balanced_parentheses(")("))  # Outputs: False
+print(is_balanced_parentheses("())("))  # Outputs: False
+print(is_balanced_parentheses("((())"))  # Outputs: False
+```
+
+In this example, we use a stack to keep track of opening parentheses encountered. When we encounter a closing parenthesis, we check if it matches the top of the stack. If it does, we pop the top element from the stack. If the stack is empty when we encounter a closing parenthesis or if there's a mismatch between opening and closing brackets, the string is not balanced.
+
+You can modify and expand this example to handle other types of brackets or to perform more complex balancing checks.
+
 [Back to Welcome Page](0-welcome.md)
